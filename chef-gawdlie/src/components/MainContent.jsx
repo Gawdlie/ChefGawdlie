@@ -7,10 +7,7 @@ export default function MainContent() {
         return <li key={item}>{item}</li>;
     });
 
-    function handleSubmit(event) {
-        event.preventDefault();
-
-        const formData = new FormData(event.currentTarget);
+    function handleSubmit(formData) {
         const newIngredient = formData.get("ingredient");
         
         setMyIngredients(prevIngredients => 
@@ -20,7 +17,7 @@ export default function MainContent() {
     return(
         <>
             <main>
-                <form onSubmit={handleSubmit} className="ingredient-form">
+                <form action={handleSubmit} className="ingredient-form">
                     <input aria-label="Add ingredient" type="text" placeholder="e.g. oregano" name="ingredient" />
                     <button>Add ingredient</button>
                 </form>
