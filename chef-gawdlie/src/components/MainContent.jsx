@@ -1,6 +1,7 @@
 import React from "react";
 import GawdlieRecipe from "./GawdlieRecipe.jsx"
 import IngredientsList from "./IngredientsList.jsx"
+import { getAnthropicRecipe } from "../ai.js";  
 
 export default function MainContent() {
 
