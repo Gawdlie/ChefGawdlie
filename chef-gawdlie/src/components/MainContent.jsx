@@ -5,10 +5,6 @@ import IngredientsList from "./IngredientsList.jsx"
 export default function MainContent() {
 
     const [myIngredients, setMyIngredients] = React.useState([]);
-    const newMap = myIngredients.map((item) => {
-        return <li key={item}>{item}</li>;
-    });
-
     const [recipeShown, setRecipeShown] = React.useState(false);
 
     function handleSubmit(formData) {
