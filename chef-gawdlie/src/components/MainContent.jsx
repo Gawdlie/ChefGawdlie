@@ -15,10 +15,10 @@ export default function MainContent() {
             [...prevIngredients, newIngredient]);
     }
 
-    function handleRecipeClick() {
-        setRecipeShown(prevRecipeShown => !prevRecipeShown)
+    async function getRecipe() {
+        const recipeIdea = await getAnthropicRecipe(myIngredients);
+        console.log(recipeIdea);
     }
-
 
     return(
         <>
@@ -28,7 +28,7 @@ export default function MainContent() {
                     <button>Add ingredient</button>
                 </form>
                 {myIngredients.length > 0 ? 
-                    <IngredientsList ingredients={myIngredients} recipeClick={handleRecipeClick}/> : 
+                    <IngredientsList ingredients={myIngredients} getRecipe={getRecipe}/> : 
                     <p className="empty-list">
                     Your ingredient list is empty/small. Start adding some ingredients to craft an exquisite recipe!
                     </p>}

@@ -19,7 +19,7 @@ export async function getAnthropicRecipe(ingredientsArr) {
     const ingredientsString = ingredientsArr.join(", ");
 
     const message = await anthropic.messages.create({
-        model: "claude-3-haiku-20230307",
+        model: "claude-3-haiku-20240307",
         max_tokens: 1024,
         system: SYSTEM_PROMPT,
         messages: [
