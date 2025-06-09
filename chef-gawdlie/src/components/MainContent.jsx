@@ -14,6 +14,7 @@ export default function MainContent() {
             [...prevIngredients, newIngredient]);
     }
 
+
     return(
         <>
             <main>
@@ -21,17 +22,22 @@ export default function MainContent() {
                     <input aria-label="Add ingredient" type="text" placeholder="e.g. oregano" name="ingredient" />
                     <button>Add ingredient</button>
                 </form>
-                <section>
-                    <h2>Ingredients on hand:</h2>
-                    <ul className="ingredient-list" aria-live="polite">{newMap}</ul>
-                    <div className="get-recipe-container">
-                        <div>
-                            <h3>Ready for a recipe?</h3>
-                            <p>Generate a recipe from your list of ingredients</p>
-                        </div>
-                        <button>Get a recipe</button>
-                    </div>
-                </section>
+                {myIngredients.length > 0 ? 
+                    <section>
+                        <h2>Ingredients on hand:</h2>
+                        <ul className="ingredient-list" aria-live="polite">{newMap}</ul>
+                            {myIngredients.length > 3 ? 
+                            <div className="get-recipe-container">
+                                <div>
+                                    <h3>Ready for a recipe?</h3>
+                                    <p>Generate a recipe from your list of ingredients</p>
+                                </div>
+                                <button>Get a recipe</button>
+                            </div> : null}
+                    </section> : 
+                    <p className="empty-list">
+                    Your ingredient list is empty/small. Start adding some ingredients to craft an exquisite recipe!
+                    </p>}
             </main>
         </>
     );
