@@ -1,8 +1,12 @@
+import ReactMarkdown from 'react-markdown'
+
 export default function GawdlieRecipe(props) {
+    const markdown = props.recipeText;
+
     return (
-        <section>
+        <section className="suggested-recipe-container" aria-live="polite">
                 <h2>Chef Gawdlie Recommends:</h2>
-                 {props.recipeText}   
+                 <ReactMarkdown>{markdown}</ReactMarkdown>  
         </section>
     );
 }
