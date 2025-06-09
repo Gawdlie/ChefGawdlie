@@ -6,7 +6,7 @@ import { getAnthropicRecipe } from "../ai.js";
 export default function MainContent() {
 
     const [myIngredients, setMyIngredients] = React.useState([]);
-    const [recipeShown, setRecipeShown] = React.useState(false);
+    const [recipe, setRecipe] = React.useState("");
 
     function handleSubmit(formData) {
         const newIngredient = formData.get("ingredient");
@@ -17,7 +17,7 @@ export default function MainContent() {
 
     async function getRecipe() {
         const recipeIdea = await getAnthropicRecipe(myIngredients);
-        console.log(recipeIdea);
+        setRecipe(recipeIdea);
     }
 
     return(
@@ -32,7 +32,7 @@ export default function MainContent() {
                     <p className="empty-list">
                     Your ingredient list is empty/small. Start adding some ingredients to craft an exquisite recipe!
                     </p>}
-                    {recipeShown ? <GawdlieRecipe /> : null}
+                    {recipe ? <GawdlieRecipe recipeText={recipe}  /> : null}
             </main>
         </>
     );
