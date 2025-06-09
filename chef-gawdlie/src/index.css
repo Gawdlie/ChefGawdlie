@@ -99,3 +99,9 @@ main {
 .suggested-recipe-container ul li, .suggested-recipe-container ol li {
     margin-bottom: 8px;
 }
+
+.empty-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
